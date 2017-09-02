@@ -1,0 +1,25 @@
+{
+  // Required
+  "manifest_version": 2,
+  "name": "custom google.com page",
+  "version": "0.1",
+
+  // Recommended
+  "description": "hides most visited boxes on google.com",
+
+
+
+  // Pick one (or none)
+  "browser_action": {
+    "default_title": "HideMostVisited",
+    "default_popup": "index.html"
+  },
+
+  // Optional
+  "author": "Jarrod Luca",
+  "content_scripts": [{
+      "matches": ["https://www.google.com/*"],
+      "js": ["jquery-3.2.1.min.js", "script.js"],
+      "css":["style.css"]
+    }]
+}

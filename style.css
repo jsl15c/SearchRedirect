@@ -1,0 +1,46 @@
+#hplogo {
+  display:none!important;
+}
+
+#lga {
+  line-height: 233px;
+}
+
+#logo-container {
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: rgba(0,0,0,0.5);
+  font-family: 'Avenir';
+}
+
+#fbar {
+  background:transparent!important;
+  border-top:0!important;
+}
+
+#sfdiv, .gstl_0.sbib_a, .sbdd_b, .sbdd_a, .sbsb_a, .sbsb_b {
+  background:transparent!important;
+}
+
+
+/*.letter:nth-child(even) {
+  color:#6CAE75;
+}*/
+
+#google-logo {
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  margin:auto;
+}
+
+.letter {
+  color:#226CE0;
+}
+
+.container {
+  border-radius:100%;
+  border:1px solid red;
+}
