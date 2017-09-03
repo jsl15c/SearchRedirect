@@ -21,21 +21,24 @@ function googleSearch() {
   window.location=`https://www.google.com/search?q=${searchInput}`;
 }
 
+
 $(document).ready(() => {
-  // changes onsubmit attribute of form
-  $('.b_searchboxForm').append(`<span id="redirect"></span>`);
 
-  // click function redirects page
-  $('#redirect').click(() => {
-    googleSearch();
-  });
-
-  // 'enter' key redirects too
-  $("#sb_form").keypress(function(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        googleSearch();
+  // for bing.com
+  if (window.location.href.includes('bing.com')) {
+    console.log('bing.com');
+    // changes onsubmit attribute of form
+    $('.b_searchboxForm').append(`<span id="redirect"></span>`);
+    // click function redirects page
+    $('#redirect').click(() => {
+      googleSearch();
+    });
+    // 'enter' key redirects too
+    $("#sb_form").keypress(function(event) {
+      if (event.which == 13) {
+          event.preventDefault();
+          googleSearch();
+        }
+      });
     }
-});
-
 });
