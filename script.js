@@ -30,4 +30,12 @@ $(document).ready(() => {
     googleSearch();
   });
 
+  // 'enter' key redirects too
+  $("#sb_form").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+        googleSearch();
+    }
+});
+
 });
