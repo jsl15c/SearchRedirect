@@ -1,40 +1,33 @@
-console.log('script.js works!');
+console.log('script loaded');
 
-let name = ['g','o','o','g','l','e'];
 
-let newLogo = [];
+// test getting value from bing search box
+$('.hp_sw_logo').click(()=> {
+  console.log($("#sb_form_q").val());
+});
 
-// name.forEach((letter, i) => {
-//    newLogo.push(`<span class='letter letter-${i}'>${letter}</span>`);
+// test getting url from browser
+// $('.hp_sw_logo').click(()=> {
+//   console.log(window.location.href);
 // });
 
-
-const searchButtons = document.getElementsByClassName("jsb");
-const background = document.getElementsByClassName("ctr-p");
-const logoContainer = "<div id='logo-container'></div>";
-
-searchButtons[0].style.display = "none";
-background[0].style.background = "linear-gradient(45deg, #B1FEB2, #C0F5F3)";
-
-
-$('#lga').append(logoContainer);
-// $('#logo-container').append(newLogo);
-$('#logo-container').append("<img id='google-logo' src='https://cdn.dribbble.com/users/124355/screenshots/2385746/google-logo.png'/>");
-
-function changeBg() {
-  const color = $("#color").val();
-  console.log(color);
+// changes the URL to a google search
+function googleSearch() {
+  console.log('button works!');
+  // gets search input
+  let searchInput = $("#sb_form_q").val();
+  console.log(searchInput);
+  // changes window location to new google url
+  window.location=`https://www.google.com/search?q=${searchInput}`;
 }
 
-// content.js
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if( request.message === "clicked_browser_action" ) {
-      $('#submit').click(() => {
-        console.log('click event works');
-      });
-      // This line is new!
+$(document).ready(() => {
+  // changes onsubmit attribute of form
+  $('.b_searchboxForm').append(`<span id="redirect"></span>`);
 
-    }
-  }
-);
+  // click function redirects page
+  $('#redirect').click(() => {
+    googleSearch();
+  });
+
+});
