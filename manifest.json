@@ -2,7 +2,7 @@
   // Required
   "manifest_version": 2,
   "name": "SearchRedirect",
-  "version": "0.1",
+  "version": "1",
 
   // Recommended
   "description": "redirects all search pages to google search",
@@ -11,14 +11,14 @@
 
   // Pick one (or none)
   "browser_action": {
-    "default_title": "SearchRedirect",
-    "default_popup": "index.html"
+
   },
 
   // Optional
   "author": "Jarrod Luca",
   "content_scripts": [{
-      "matches": ["https://www.bing.com/*", "https://www.yahoo.com/*"],
+      "matches": ["https://www.bing.com/*", "https://www.yahoo.com/*",
+      "https://www.aol.com/*"],
       "js": ["jquery-3.2.1.min.js", "script.js"],
       "css":["style.css"]
     }]

@@ -1,21 +1,23 @@
+// check connection
 console.log('script loaded');
 
-
-// test getting value from bing search box
-$('.hp_sw_logo').click(()=> {
-  console.log($("#sb_form_q").val());
-});
-
-// test getting url from browser
-// $('.hp_sw_logo').click(()=> {
-//   console.log(window.location.href);
-// });
+// change form id to append redirect button to (reduces repitition)
+$('form').attr('id','search-form');
 
 // changes the URL to a google search
 function googleSearch() {
   console.log('button works!');
-  // gets search input
-  let searchInput = $("#sb_form_q").val();
+  let searchInput;
+  // gets search input from different SE forms
+  if (window.location.href.includes('bing.com')) {
+    searchInput = $("#sb_form_q").val();
+  }
+  else if (window.location.href.includes('yahoo.com')) {
+    searchInput = $("#uh-search-box").val();
+  }
+  else if (window.location.href.includes('aol.com')) {
+    searchInput = $("#q").val();
+  }
   console.log(searchInput);
   // changes window location to new google url
   window.location=`https://www.google.com/search?q=${searchInput}`;
@@ -23,22 +25,28 @@ function googleSearch() {
 
 
 $(document).ready(() => {
-
-  // for bing.com
+  // places new input over existing form submission button
   if (window.location.href.includes('bing.com')) {
-    console.log('bing.com');
-    // changes onsubmit attribute of form
-    $('.b_searchboxForm').append(`<span id="redirect"></span>`);
+      console.log('bing.com');
+      $('#search-form').append(`<span class="redirect bing"></span>`);
+    }
+    else if (window.location.href.includes('yahoo.com')) {
+      console.log('yahoo.com');
+      $('#search-form').append(`<span class="redirect yahoo"></span>`);
+    }
+    else if (window.location.href.includes('aol.com')) {
+      console.log('aol.com');
+      $('#search-form').append(`<span class="redirect aol"></span>`);
+    }
     // click function redirects page
-    $('#redirect').click(() => {
+    $('.redirect').click(() => {
       googleSearch();
     });
     // 'enter' key redirects too
-    $("#sb_form").keypress(function(event) {
+    $("#search-form").keypress(function(event) {
       if (event.which == 13) {
-          event.preventDefault();
-          googleSearch();
-        }
-      });
-    }
+        event.preventDefault();
+        googleSearch();
+      }
+    });
 });

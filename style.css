@@ -1,4 +1,8 @@
-#redirect {
+#search-form {
+  position:relative;
+}
+
+.redirect.bing {
   background: transparent;
   height: 45px;
   width:45px;
@@ -8,4 +12,26 @@
   cursor: pointer;
     vertical-align: top;
     margin: -1px;
+}
+
+.redirect.yahoo {
+  height: 46px;
+    width: 90px;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
+
+.redirect.aol {
+  background: transparent;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    height: 40px;
+    vertical-align: middle;
+}
 }
